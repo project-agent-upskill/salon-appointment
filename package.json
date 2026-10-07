@@ -1,30 +1,44 @@
 {
-  "name": "temporal-assessment-starter",
+  "name": "juniper-salon",
   "version": "1.0.0",
   "private": true,
-  "description": "Student starter for the Temporal post-assessment.",
+  "description": "A durable appointment waitlist for Juniper Salon, powered by Temporal.",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "dev:api": "tsx src/api.ts",
     "dev:worker": "tsx src/worker.ts",
     "start:temporal": "docker compose up -d temporal",
     "stop": "docker compose down",
-    "test": "tsx --test tests/workflow.test.ts",
-    "typecheck": "tsc --noEmit"
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit && tsc -p client/tsconfig.json",
+    "build": "vite build",
+    "start": "NODE_ENV=production tsx src/api.ts",
+    "test:smoke": "node scripts/smoke.mjs"
   },
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=22.13"
+  },
   "dependencies": {
     "@temporalio/activity": "1.24.0",
     "@temporalio/client": "1.24.0",
     "@temporalio/worker": "1.24.0",
     "@temporalio/workflow": "1.24.0",
-    "express": "5.2.1"
+    "express": "5.2.1",
+    "lucide-react": "^1.52.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@temporalio/testing": "1.24.0",
     "@types/express": "5.0.6",
     "@types/node": "22.20.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tailwindcss": "^4.3.3",
     "tsx": "4.23.15",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vite": "^8.3.3"
   }
 }
