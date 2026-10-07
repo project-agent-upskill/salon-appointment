@@ -47,7 +47,7 @@ npm run stop          # Stop the Temporal container, retaining its data
 
 For separate processes, run `npm run start:temporal`, `npm run dev:worker`, and `npm run dev:api`. The production frontend is served by `npm start` after `npm run build`; the Worker must run separately. The application listens on localhost. Staff access is intentionally account-free for this local demonstration; real deployment would require staff authentication and authorization.
 
-## Present it to Lena
+## Demo
 
 1. Click **Try a sample opening**. This creates a Haircut with Carla later today, with a clearly labeled 30-second response window.
 2. See Maya receive the first offer. Open **Open client offer** or find the private link in **Demo inbox**.
@@ -82,7 +82,6 @@ Client links use 192-bit random tokens scoped to one offer. Client endpoints ret
 
 The prototype uses fictional clients and simulated SMS. Google Sheets and Square are not integrated. Candidate queues are independent between openings; cross-opening client reservations and conflict checks against Square are outside this demonstration. These would be needed before running concurrent outreach against a real calendar.
 
-## Code map
 
 - `client/src/App.tsx` — staff dashboard, forms, waitlist, inbox, and client offer components
 - `client/src/styles.css` — Tailwind theme and responsive Juniper styling
@@ -95,9 +94,3 @@ The prototype uses fictional clients and simulated SMS. Google Sheets and Square
 - `tests/` — lifecycle, replacement-Worker recovery, and matching tests
 - `scripts/smoke.mjs` — HTTP integration check against a running prototype
 - `evidence/` — screenshots and demonstration notes
-
-## Assessment submission
-
-Use a **brand-new public GitHub repository**, not a fork. Do not add `john-b-yang` or `vishakhpk` as collaborators; the assessment team can review a public repository without write access. Confirm GitHub shows **Public** and does not say “forked from.” Do not search for or view other participants' assessment repositories.
-
-Official references: [TypeScript guide](https://docs.temporal.io/develop/typescript), [Workflow message passing](https://docs.temporal.io/encyclopedia/workflow-message-passing), and [durable timers](https://docs.temporal.io/develop/typescript/workflows/timers).
